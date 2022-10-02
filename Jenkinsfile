@@ -17,7 +17,6 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh $PWD
 				sh 'docker build -t rameshandroid99/pipeline:latest .'
 			}
 		}

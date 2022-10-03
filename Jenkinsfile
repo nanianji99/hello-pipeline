@@ -23,14 +23,21 @@ pipeline{
                 sh 'gradle build'
             }
         }
+		stage('Docker Login') {
 
-stage('Docker Build') {
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+stage('Docker Build & Push') {
     	agent any
       steps {
       	sh 'docker build -t rameshandroid99/pipeline:latest .'
+		sh 'docker push rameshandroid99/pipeline:latest'
       }
     }
-  
+ 
 
 
 	}

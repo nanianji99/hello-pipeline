@@ -5,6 +5,7 @@ pipeline {
             agent { docker 'gradle:latest' } 
             steps {
                 echo 'Hello, gradle'
+                sh 'gradle clean'
                 sh 'gradle build'
             }
         }

@@ -21,7 +21,7 @@ pipeline{
 
 			steps {
 				sh gradle --version
-				#sh 'docker build -t rameshandroid99/pipeline:latest .'
+				//sh 'docker build -t rameshandroid99/pipeline:latest .'
 			}
 		}
 	}

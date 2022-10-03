@@ -8,7 +8,7 @@ pipeline{
 
 	stages {
 	    
-	    stage('gitclone') {
+	    stage('Clone/Download') {
 
 			steps {
 				git 'https://github.com/ramdisk-ott/hello-pipeline.git'

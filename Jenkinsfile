@@ -23,9 +23,5 @@ pipeline{
                 sh 'gradle build'
             }
         }
- 
-
 	}
- 
-
 }

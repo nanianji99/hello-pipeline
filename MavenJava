@@ -2,7 +2,7 @@ pipeline {
     agent none 
     stages {
         stage('Example Build') {
-            agent { docker 'gradle:4.7.0-jdk8-alpine' } 
+            agent { docker 'gradle:latest' } 
             steps {
                 echo 'Hello, gradle'
                 sh 'gradle --version'

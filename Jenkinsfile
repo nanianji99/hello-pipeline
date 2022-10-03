@@ -14,13 +14,17 @@ pipeline{
 				 git branch: 'main', url: 'https://github.com/ramdisk-ott/hello-pipeline.git'
 			}
 		}
-		stage('Build') {
+	 
+        stage('Example Build') {
+            agent { docker 'gradle:latest' } 
+            steps {
+                echo 'Hello, gradle'
+                sh 'gradle clean'
+                sh 'gradle build'
+            }
+        }
+ 
 
-			steps {
-				sh gradle --version
-				//sh 'docker build -t rameshandroid99/pipeline:latest .'
-			}
-		}
 	}
  
 

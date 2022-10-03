@@ -11,7 +11,7 @@ pipeline{
 	    stage('Clone/Download') {
 
 			steps {
-				git 'https://github.com/ramdisk-ott/hello-pipeline.git'
+				 git branch: 'main', url: 'https://github.com/ramdisk-ott/hello-pipeline.git'
 			}
 		}
 		stage('Build') {

@@ -1,6 +1,9 @@
 pipeline{
 
 	agent any
+	tools {
+		gradle '7.4.2'
+	}
 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('docker')
@@ -17,7 +20,8 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t rameshandroid99/pipeline:latest .'
+				sh gradle --version
+				#sh 'docker build -t rameshandroid99/pipeline:latest .'
 			}
 		}
 	}

@@ -1,13 +1,1 @@
-pipeline {
-    agent none 
-    stages {
-        stage('Example Build') {
-            agent { docker 'gradle:latest' } 
-            steps {
-                echo 'Hello, gradle'
-                sh 'gradle clean'
-                sh 'gradle build'
-            }
-        }
-    }
-}
+

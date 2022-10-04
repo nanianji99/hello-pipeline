@@ -15,8 +15,8 @@ pipeline {
 	stage('Login') {
           
 			steps {
-withCredentials([string(credentialsId: 'docker', variable: 'docker')]) {
-   				sh "docker login -u rameshandroid99 -p  ${docker}"
+withCredentials([string(credentialsId: 'docker_password', variable: 'docker_pwd')]) {
+	   				sh "docker login -u rameshandroid99 -p  ${docker_pwd}"
 }	
 			}
 		}

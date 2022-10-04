@@ -8,7 +8,7 @@ pipeline {
       steps {
         sh 'gradle --version'
 		echo 'Hello, gradle'
-        sh 'gradle clean'
+        // sh 'gradle clean'
         sh 'gradle build'   
       }
     }

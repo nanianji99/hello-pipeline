@@ -7,6 +7,7 @@ pipeline {
     docker { image 'gradle:latest' }
   		}
       steps {
+		//test messa
         // sh 'gradle clean'
         sh 'gradle build'   
       }
@@ -16,8 +17,7 @@ pipeline {
 			steps {
 withCredentials([string(credentialsId: 'docker', variable: 'docker')]) {
    				sh "docker login -u rameshandroid99 -p  ${docker}"
-}
-				
+}	
 			}
 		}
 	stage('Docker Build & Push') {

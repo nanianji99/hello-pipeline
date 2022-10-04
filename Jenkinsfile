@@ -25,10 +25,12 @@ pipeline{
         }
 	
 stage('Login') {
-            agent { label 'any' } 
-
+          
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				 withCredentials([usernameColonPassword(credentialsId: 'docker', variable: 'docker')]) {
+   				sh "docker login -u rameshandroid99 -p  ${docker}"
+}
+				
 			}
 		}
 stage('Docker Build & Push') {

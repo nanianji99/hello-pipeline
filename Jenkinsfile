@@ -12,7 +12,7 @@ pipeline {
         sh 'gradle build'   
       }
     }
-	stage('Login') {
+	stage('Docker Login') {
           
 			steps {
 withCredentials([string(credentialsId: 'docker_password', variable: 'docker_pwd')]) {
@@ -20,12 +20,12 @@ withCredentials([string(credentialsId: 'docker_password', variable: 'docker_pwd'
 }	
 			}
 		}
-	stage('Docker Build & Push') {
-    	agent any
-      steps {
-      	sh 'docker build -t rameshandroid99/pipeline:latest .'
-		sh 'docker push rameshandroid99/pipeline:latest'
-      }
-    }
+	// stage('Docker Build & Push') {
+    // 	agent any
+    //   steps {
+    //   	sh 'docker build -t rameshandroid99/pipeline:latest .'
+	// 	sh 'docker push rameshandroid99/pipeline:latest'
+    //   }
+    // }
   }
 }

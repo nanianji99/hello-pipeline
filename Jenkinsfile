@@ -11,5 +11,12 @@ pipeline {
         sh 'gradle build'   
       }
     }
+	stage('Docker Build & Push') {
+    	agent any
+      steps {
+      	sh 'docker build -t rameshandroid99/pipeline:latest .'
+		sh 'docker push rameshandroid99/pipeline:latest'
+      }
+    }
   }
 }

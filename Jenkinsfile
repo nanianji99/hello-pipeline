@@ -11,6 +11,15 @@ pipeline {
         sh 'gradle build'   
       }
     }
+	stage('Login') {
+          
+			steps {
+withCredentials([string(credentialsId: 'docker', variable: 'docker')]) {
+   				sh "docker login -u rameshandroid99 -p  ${docker}"
+}
+				
+			}
+		}
 	stage('Docker Build & Push') {
     	agent any
       steps {

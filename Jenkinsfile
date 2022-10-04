@@ -1,6 +1,7 @@
 pipeline{
 
-	agent any
+	  agent { label 'linux' }
+
 	 
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('docker')
@@ -8,21 +9,21 @@ pipeline{
 
 	stages {
 	    
-	    stage('Clone/Download') {
+	    // stage('Clone/Download') {
 
-			steps {
-				 git branch: 'main', url: 'https://github.com/ramdisk-ott/hello-pipeline.git'
-			}
-		}
+		// 	steps {
+		// 		 git branch: 'main', url: 'https://github.com/ramdisk-ott/hello-pipeline.git'
+		// 	}
+		// }
 	 
-        stage('War Build') {
-            agent { docker 'gradle:latest' } 
-            steps {
-                echo 'Hello, gradle'
-                sh 'gradle clean'
-                sh 'gradle build'
-            }
-        }
+        // stage('War Build') {
+        //     agent { docker 'gradle:latest' } 
+        //     steps {
+        //         echo 'Hello, gradle'
+        //         sh 'gradle clean'
+        //         sh 'gradle build'
+        //     }
+        // }
 	
 stage('Login') {
             agent { label 'linux' } 

@@ -12,14 +12,14 @@ pipeline {
         sh 'gradle build'   
       }
     }
-	stage('Docker Login') {
+// 	stage('Docker Login') {
           
-			steps {
-withCredentials([string(credentialsId: 'docker_password', variable: 'docker_pwd')]) {
-	   				sh "docker login -u rameshandroid99 -p  ${docker_pwd}"
-}	
-			}
-		}
+// 			steps {
+// withCredentials([string(credentialsId: 'docker_password', variable: 'docker_pwd')]) {
+// 	   				sh "docker login -u rameshandroid99 -p  ${docker_pwd}"
+// }	
+// 			}
+// 		}
 	// stage('Docker Build & Push') {
     // 	agent any
     //   steps {
